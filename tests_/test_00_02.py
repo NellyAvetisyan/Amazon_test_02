@@ -1,11 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-# from time import sleep
-# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.wait import WebDriverWait
 from pages_.loginPage import LoginPage
 from pages_.navigationBar import NavigationBar
 from pages_.cartPage import CartPage
-from pages_.searchFieldElement import SearchFieldElement
 from time import sleep
 
 driver = webdriver.Chrome()
@@ -18,6 +15,8 @@ loginPageObj = LoginPage(driver)
 loginPageObj.fill_username_field("Nellikoko91@gmail.com")
 loginPageObj.click_to_continue_button()
 loginPageObj.fill_password_button("Korea2022")
+sleep(6)
+# to avoid CAPTCHA check
 loginPageObj.click_signin_button()
 
 navigationBarObj = NavigationBar(driver)
@@ -26,16 +25,5 @@ navigationBarObj.click_to_navigation_bar()
 cartPageObj = CartPage(driver)
 cartPageObj.delete_first_item()
 
-# navigationBarObj.click_to_logo_bar()
-# navigationBarObj.click_to_customersmostloved_field()
-#
-#
-# searchFieldElementObj = SearchFieldElement(driver)
-# searchFieldElementObj.fill_search_field("candle")
-# searchFieldElementObj.click_to_search_submit_button()
-# searchFieldElementObj.click_to_first_item()
-#
-# cartPageObj.click_to_addtocart_button()
-#
 sleep(10)
-driver.close()
+driver.close(
