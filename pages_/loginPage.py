@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from pages_.basePage import BasePage
 
-
 class LoginPage(BasePage):
     def __init__(self, driver: webdriver.Chrome):
         self.driver = driver

@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 class BasePage():
+
     def __init(self, driver: webdriver.Chrome):
         self.driver = driver
 
@@ -12,7 +12,7 @@ class BasePage():
             element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, value)))
             return element
         except:
-            print("ERROR:Element not found")
+            print("ERROR:Element not found or wrong")
             exit(1)
 
     def _click(self, webElement):
@@ -23,30 +23,11 @@ class BasePage():
         webElement.send_keys(text)
 
     def _get_element_text(self, webElement,):
-        webElement.get_attribute()
+        webElement.text()
 
     def _get_title(self):
-        return self.driver.title()
+        return self.driver.title
 
-    # def _find_element(self, locator):
-    #     if self._is_element_visible(locator):
-    #         element = self.driver.find_element(*locator)
-    #         return element
-    #     else:
-    #         print("Element is Not found")
-
-    # def _is_element_visible(self, locator):
-    #     try:
-    #         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
-    #         return True
-    #     except:
-    #         return False
-    #
-    # def _element_should_be_visible(self, locator):
-    #     try:
-    #         WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
-    #     except:
-    #         print("ERROR: Element is not visible")
 
 
 
